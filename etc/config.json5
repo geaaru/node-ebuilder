@@ -1,0 +1,67 @@
+// -----------------------------------------------
+// Author: geaaru, geaaru<@>gmail.com
+// Version: $Id$
+// Description: Configuration file of node-ebuilder module.
+{
+
+   // Configura directory of
+   // Portage overlay repository where
+   // store new ebuilds.
+   // In ABS format.
+   overlaydir: '/home/geaaru/geaaru_overlay/',
+
+   // Customize ebuild category where
+   // store new ebuilds. Default is 'dev-node'
+   // category: 'dev-node',
+
+   // Define a list of packages to identify with
+   // a custom name.
+   // customNameMap: [
+   //    {
+   //       'name': 'xxx',
+   //       'tarball': 'http://xxxx',
+   //       'gitUrl': 'http://xxxx',
+   //       'customName': 'newname'
+   //    },
+   // ],
+
+   // Definel a list of packages to exclude.
+   // excludePkgs: [ 'xxx', 'yyy' ],
+
+   // Define npm binary path. Default is npm.
+   // npmBinary: 'npm',
+
+   // Logging file path.
+   logFile: './node-ebuilder.log',
+
+   // Logging level.
+   // Possible values are: info, debug, warn, error
+   logLevel: 'info',
+
+   // Enable logging timezone
+   timezone: 'Europe/Rome',
+
+   // Configure directory where download and unpack package to elaborate.
+   // unpackDir: './staging',
+
+   // Packages to elaborate.
+   packages: [
+
+      /*
+      {
+         name: 'package1',
+         version: '0.1.0',
+         tarball: 'http://example.com/package1-0.1.0.tgz',
+         gitPackage: true,
+         gitUrl: 'http://example.com/package.git',
+         gitTag: '0.1.0',
+         customName: 'newname1',
+         customCategory: 'app-node',
+         stagingPkgDir: '/home/geaaru/package1',
+      },
+      */
+   ],
+
+}
+
+// vim: ts=3 sw=3 expandtab filetype=json5
