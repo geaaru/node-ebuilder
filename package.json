@@ -14,8 +14,9 @@
     "moment-timezone": "^0.5.3",
     "replaceall": "^0.1.6",
     "semver": "^5.1.0",
+    "shelljs": "^0.6.0",
     "winston": "^2.2.0",
-    "shelljs": "^0.6.0"
+    "winston-logrotate": "^1.0.0"
   },
   "devDependencies": {
     "simple-grep": "0.0.1"
