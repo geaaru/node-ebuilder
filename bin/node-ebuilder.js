@@ -59,9 +59,12 @@ var main = function() {
       } // end for
    }
 
+   logging.Logger.info('End of the elaboration.');
+
    // NOTE: process.exit MUST not present to avoid problem
    //       on logging to file
    // process.exit(0);
+   logging.Logger.exitAfterFlush(0);
 };
 
 main();

@@ -195,6 +195,19 @@
                   ]
                },
                {
+                  name: 'mime-db',
+                  dirs: [
+                     'db.json',
+                  ]
+               },
+
+               {
+                  name: 'mime',
+                  dirs: [
+                     'types',
+                  ]
+               },
+               {
                   name: 'http-signature',
                   dirs: [
                      'http_signing.md',
