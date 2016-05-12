@@ -29,7 +29,8 @@ var check4CustomDirs = function (ebuilder, pkg, f) {
 
          p = adapter.adapters_opts.pkgs[idx];
          if (p.name == pkg.getEbuildPkgName()) {
-            if (p.dirs.indexOf(path.basename(f.name)) > -1) {
+
+            if (p.dirs.indexOf(path.basename(f)) > -1) {
                ans = true;
                break;
             }
