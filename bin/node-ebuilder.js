@@ -7,8 +7,9 @@ const json5 = require('json5'),
    sprintf = require('util').format,
    cmdline = require('../lib/cmdline'),
    check = require('../lib/check'),
-   proc = require('../lib/process'),
-   logging = require('../lib/logging');
+   logging = require('../lib/logging'),
+   proc = require('../lib/process');
+
 
 // Add require() hook for .json5 file.
 require('json5/lib/require');
@@ -20,6 +21,8 @@ var main = function() {
    var idx = 0;
 
    logging.initLogging(ebuilder);
+
+   logging.Logger.info('Starting processing of node-ebuilder.');
 
    check.checkEclassValidity(ebuilder);
 
@@ -56,7 +59,9 @@ var main = function() {
       } // end for
    }
 
-   process.exit(0);
+   // NOTE: process.exit MUST not present to avoid problem
+   //       on logging to file
+   // process.exit(0);
 };
 
 main();

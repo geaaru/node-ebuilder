@@ -100,12 +100,15 @@
          name: 'pre-force',
          builtin: true,
          adapters_opts: {
+            /*
             pkgs: [
                {
                   name: 'sshpk',
                   npmInstallOpts: '-E --production',
                }
             ]
+            */
+            checkOptionalDeps: true
          }
       }
    ],
@@ -232,6 +235,7 @@
 
          }
       }, // end ebuild-npm-pkg-dirs adapter
+      /*
       {
          name: 'ebuild-override-s',
          builtin: true,
@@ -247,7 +251,7 @@
          }
 
       }, // end ebuild-override-s adapter
-
+      */
       {
          name: 'ebuild-override-srcuri',
          builtin: true,

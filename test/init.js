@@ -18,7 +18,7 @@ var initBuilder = function () {
       fs.mkdirSync(ans.overlaydir);
   }
 
-  ans.logFile = '/home/geaaru/Projects/node-ebuilder/node-ebuilder.log';
+  ans.logFile = './node-ebuilder.log';
   ans.logLevel = 'debug';
 
   logging.initLogging(ans);

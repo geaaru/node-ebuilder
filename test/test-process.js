@@ -87,8 +87,8 @@ console.log("BEGIN " + path.basename(__filename, '.js'));
 
 // NOTE: tmp overlay directory must be contains npmv1.eclass and metadata/layout.conf
 
-test_process();
-// test_process_all();
+//test_process();
+test_process_all();
 
 console.log("END " + path.basename(__filename, '.js'));
 
