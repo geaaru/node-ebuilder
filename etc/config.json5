@@ -237,12 +237,6 @@
                      'build',
                   ]
                },
-               {
-                  name: 'mime-db',
-                  dirs: [
-                     'db.json',
-                  ]
-               },
             ]
 
 
