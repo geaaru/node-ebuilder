@@ -89,9 +89,11 @@ var doPreliminary = function (ebuilder, pkg, adapters_opts) {
             if ("name" in p && p.name == pkg.getEbuildPkgName()) {
 
                if (("version" in p && p.version == pkg.version) ||
-                   (!"version" in p)) {
+                   (!("version" in p))) {
 
-                      logging
+                      logging.Logger.debug(
+                        sprintf('[pre-force] For package %s force install of modules.',
+                                pkg.getEbuildPkgName()));
                       ans = true;
                       setNpmInstallOpts(pkg, p);
 

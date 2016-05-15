@@ -38,8 +38,8 @@ var main = function() {
       } catch (err) {
 
          logging.Logger.error(
-            sprintf("Error on elaborate package %s:\n%s",
-                    pkg.getEbuildPkgName(), err));
+            sprintf("Error on elaborate package %s:\n%s\n%s",
+                    pkg.getEbuildPkgName(), err, err.stack));
          pkg.inError = true;
          pkg.errorException = err;
 

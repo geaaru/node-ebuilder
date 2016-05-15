@@ -8,8 +8,8 @@
    // Portage overlay repository where
    // store new ebuilds.
    // In ABS format.
-   overlaydir: '/tmp/node-ebuilder-overlay/',
-   //overlaydir: '/home/geaaru/geaaru_overlay/',
+   //overlaydir: '/tmp/node-ebuilder-overlay/',
+   overlaydir: '/home/geaaru/geaaru_overlay/',
 
    // Customize ebuild category where
    // store new ebuilds. Default is 'dev-node'
@@ -89,28 +89,45 @@
          },
       */
       {
-         name: 'pre-gyp',
+         name: 'pre-ls',
          builtin: true
       },
       {
-         name: 'pre-ls',
+         name: 'pre-optional-deps',
+         builtin: true,
+         adapters_opts: {
+            pkgs: [
+               {
+                  // Bleno contains library related with
+                  // bluetooth that are available only
+                  // as optional dependencies
+                  name: 'bleno',
+                  useOptionalDependencies: true,
+                  excluded: [ 'xpc-connection' ]
+               }
+            ],
+         }
+      },
+      {
+         name: 'pre-gyp',
          builtin: true
       },
       {
          name: 'pre-force',
          builtin: true,
          adapters_opts: {
-            /*
             pkgs: [
                {
-                  name: 'sshpk',
+                  // Bleno contains library related with
+                  // bluetooth that are available only
+                  // as optional dependencies.
+                  name: 'bleno',
                   npmInstallOpts: '-E --production',
                }
-            ]
-            */
+            ],
             checkOptionalDeps: true
          }
-      }
+      },
    ],
 
    // Ebuilds adapter are execute before create ebuilds file
@@ -151,8 +168,7 @@
                   localMods: [
                      'assert-plus'
                   ]
-               }
-
+               },
             ]
 
          }
