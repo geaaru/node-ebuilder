@@ -19,6 +19,7 @@ var processEbuild = function (ebuilder, pkg, adapters_opts) {
    //         'pkgs': [
    //             {
    //                name: 'xxx',
+   //                version: 'xxx',
    //                uri : 'http:/xxxx'
    //             },
    //         ]
@@ -35,15 +36,29 @@ var processEbuild = function (ebuilder, pkg, adapters_opts) {
 
            if ("name" in p && p.name == pkg.getEbuildPkgName()) {
 
-              if ("uri" in p) {
+              var to_customize = false;
 
-                 pkg.ebuildFile.src_uri_override = true;
-                 pkg.ebuildFile.src_uri = p.uri;
-
+              if ("version" in p && p.version == pkg.version) {
+                 to_customize = true;
+              } else if ("version" in p) {
+                 logging.Logger.debug(sprintf(
+                    "[%s] found pkg %s with different version %s.",
+                    ebuildAdapterName, pkg.name, p.version));
               } else {
-                 throw sprintf(
-                    'Invalid configuration on ebuild-override-srcuri for package %s! Missing uri option!',
-                    pkg.getEbuildPkgName());
+                 to_customize = true;
+              }
+
+              if (to_customize) {
+                 if ("uri" in p) {
+
+                    pkg.ebuildFile.src_uri_override = true;
+                    pkg.ebuildFile.src_uri = p.uri;
+
+                 } else {
+                    throw sprintf(
+                       'Invalid configuration on ebuild-override-srcuri for package %s! Missing uri option!',
+                       pkg.getEbuildPkgName());
+                 }
               }
 
            }

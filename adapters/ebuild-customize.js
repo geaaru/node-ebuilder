@@ -19,6 +19,7 @@ var processEbuild = function (ebuilder, pkg, adapters_opts) {
    //         'pkgs': [
    //             {
    //                name: 'xxx',
+   //                version: 'xxx', (optional)
    //                preCustomOptions: [
    //                   'row1',
    //                   'row2',
@@ -42,13 +43,29 @@ var processEbuild = function (ebuilder, pkg, adapters_opts) {
 
            if ("name" in p && p.name == pkg.getEbuildPkgName()) {
 
-              if ("preCustomOptions" in p) {
-                 pkg.ebuildFile.preCustomOptions = p.preCustomOptions;
+              var to_customize = false;
+
+              if ("version" in p && p.version == pkg.version) {
+                 to_customize = true;
+              } else if ("version" in p) {
+                 logging.Logger.debug(sprintf(
+                    "[%s] found pkg %s with different version %s.",
+                    ebuildAdapterName, pkg.name, p.version));
+
+              } else {
+                 to_customize = true;
               }
 
-              if ("customOptions" in p) {
-                 pkg.ebuildFile.customOptions = p.customOptions;
-              }
+              if (to_customize) {
+                 if ("preCustomOptions" in p) {
+                    pkg.ebuildFile.preCustomOptions = p.preCustomOptions;
+                 }
+
+                 if ("customOptions" in p) {
+                    pkg.ebuildFile.customOptions = p.customOptions;
+                 }
+
+              } // end if ...
 
            }
 
