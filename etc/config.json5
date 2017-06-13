@@ -284,6 +284,15 @@
                   name: 'form-data',
                   uri: 'http://registry.npmjs.org/${PN}/-/${PN}-${MY_V}.tgz'
                },
+               {
+                  name: 'double-ended-queue',
+                  uri: 'http://registry.npmjs.org/${PN}/-/${PN}-${MY_V}.tgz'
+               },
+               {
+                  name: 'pug',
+                  version: '2.0.0-rc.2',
+                  uri: 'http://registry.npmjs.org/${PN}/-/${PN}-${MY_V}.tgz'
+               },
             ]
 
          }
@@ -299,6 +308,24 @@
                   name: 'form-data',
                   preCustomOptions: [
                      'MY_V=${PV/_rc/-rc}',
+                  ],
+                  // customOptions: []
+               },
+               {
+                  // For double-ended-queue 2.1.0-0
+                  name: 'double-ended-queue',
+                  version: '2.1.0-0',
+                  preCustomOptions: [
+                     'MY_V=${PV}-0',
+                  ],
+                  // customOptions: []
+               },
+               {
+                  // For pug-2.0.0-rc.2
+                  name: 'pug',
+                  version: '2.0.0-rc.2',
+                  preCustomOptions: [
+                     'MY_V=${PV/_rc/-rc.}',
                   ],
                   // customOptions: []
                },
