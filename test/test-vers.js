@@ -101,6 +101,63 @@ var test_range_versions = function() {
 
 };
 
+var test_range_versions2 = function() {
+
+   // Handle double-ended-queue version...
+
+   var v = '2.1.0-0';
+   var p_v = '^2.1.0';
+
+   v = v.replace(/-\d/, '');
+   console.log(sprintf("ebuild version %s", v));
+
+   console.log(sprintf("packet version %s", p_v));
+
+   console.log(sprintf("Satisfy range: %s", semver.satisfies(v, p_v)));
+
+};
+
+
+var test_range_versions3 = function() {
+
+   // Handle pug version...
+
+   var v = '2.0.0-rc.2';
+   var p_v = ebuild.unGentoofyVersion('2.0.0_rc2');
+
+   console.log(sprintf("ebuild version %s", v));
+
+   console.log(sprintf("packet version %s", p_v));
+
+   console.log(sprintf("Satisfy range: %s", semver.satisfies(ebuild.evenVersionRange(v), p_v)));
+
+};
+
+var test_range_versions4 = function() {
+
+   var v = '0.0.2';
+   var range = '^0.0.2';
+   var p_v = ebuild.unGentoofyVersion('0.0.3');
+
+   console.log(sprintf("ebuild version %s", v));
+   console.log(sprintf("ebuild major version %s", semver.major(v)));
+   console.log(sprintf("ebuild minor version %s", semver.minor(v)));
+   console.log(sprintf("ebuild patch version %s", semver.patch(v)));
+
+   console.log(sprintf("packet version %s", p_v));
+
+   console.log(sprintf("Satisfy range: %s", semver.satisfies(p_v, range)));
+   console.log(sprintf("Satisfy range: %s", ebuild.satisfiesRange(p_v, range)));
+
+};
+
+var test_valid_vers = function() {
+
+   var v = '2.0.0-rc2';
+   console.log(sprintf('version %s is valid: %s', v, semver.valid(v) == null ? false : true));
+
+};
+
 var test_gentoofy1 = function() {
 
    version = '2.1.0-0';
@@ -117,7 +174,11 @@ console.log("BEGIN " + path.basename(__filename, '.js'));
 //test_vers4();
 //test_vers5();
 //test_range_versions();
-test_gentoofy1();
+test_range_versions2();
+test_range_versions3();
+test_range_versions4();
+test_valid_vers();
+//test_gentoofy1();
 
 console.log("END " + path.basename(__filename, '.js'));
 

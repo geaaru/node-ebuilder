@@ -11,7 +11,8 @@ var initBuilder = function () {
 
   var ans = new core.NodeBuilder();
   ans.debug = true;
-  ans.overlaydir = '/tmp/node-ebuilder-overlay';
+  //ans.overlaydir = '/tmp/node-ebuilder-overlay';
+  ans.overlaydir = '/home/geaaru/geaaru_overlay';
 
   if (!fs.existsSync(ans.overlaydir)) {
       console.log("Created " + ans.overlaydir + " for test module.");
@@ -33,6 +34,23 @@ var initPreliminaryAdapters = function(ebuilder) {
          name: 'pre-ls',
          builtin: true,
       },
+
+      {
+         name: 'pre-optional-deps',
+         builtin: true,
+         adapters_opts: {
+            pkgs: [
+               {
+                  // Bleno contains library related with
+                  // bluetooth that are available only
+                  // as optional dependencies
+                  name: 'bleno',
+                  useOptionalDependencies: true,
+                  excluded: [ 'xpc-connection' ]
+               }
+            ],
+         }
+      },
       {
          name: 'pre-gyp',
          builtin: true,
@@ -41,6 +59,15 @@ var initPreliminaryAdapters = function(ebuilder) {
          name: 'pre-force',
          builtin: true,
          adapters_opts: {
+            pkgs: [
+               {
+                  // Bleno contains library related with
+                  // bluetooth that are available only
+                  // as optional dependencies.
+                  name: 'bleno',
+                  npmInstallOpts: '-E --production',
+               }
+            ],
             checkOptionalDeps: true
          }
       }

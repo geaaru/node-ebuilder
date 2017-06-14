@@ -19,7 +19,9 @@ var test_process  = function() {
 
    pkg = new core.PackageData();
    //pkg.stagingPkgDir = '/home/geaaru/dev/Log.io';
-   pkg.stagingPkgDir = '/home/geaaru/dev/Log.io/node_modules/json-schema';
+   //pkg.stagingPkgDir = '/home/geaaru/dev/bleno';
+   pkg.stagingPkgDir = '/home/geaaru/Projects/node_modules/gulp';;
+   //pkg.stagingPkgDir = '/home/geaaru/dev/Log.io/node_modules/ws';
 
    proc.processPackageData(ebuilder, pkg);
 
@@ -48,7 +50,8 @@ var test_process_all  = function() {
    init.initEbuildAdapters(ebuilder);
 
    pkg = new core.PackageData();
-   pkg.stagingPkgDir = '/home/geaaru/dev/Log.io';
+   //pkg.stagingPkgDir = '/home/geaaru/dev/Log.io';
+   pkg.stagingPkgDir = '/home/geaaru/Projects/node_modules/gulp';;
 
    ebuilder.addPackage(pkg);
 

@@ -29,9 +29,25 @@ var test_ebuild1 = function() {
 };
 
 
+var test_isThereEbuild = function() {
+
+   var ebuilder = init.initBuilder();
+   ebuilder.overlaydir = '/home/geaaru/geaaru_overlay';
+
+   var isPresent =  ebuild.isThereValidEbuild4Range(ebuilder.overlaydir,
+                                                    ebuilder.category,
+                                                    'ms', '0.7.1');
+
+   console.log("----------------------------------------");
+   console.log(isPresent);
+   console.log("----------------------------------------");
+
+}
+
 console.log("BEGIN " + path.basename(__filename, '.js'));
 
-test_ebuild1();
+// test_ebuild1();
+test_isThereEbuild();
 
 console.log("END " + path.basename(__filename, '.js'));
 
