@@ -221,6 +221,8 @@
                   name: 'mime',
                   dirs: [
                      'types',
+                     'types.json',
+                     'build',
                   ]
                },
                {
@@ -251,6 +253,12 @@
                   name: 'isarray',
                   dirs: [
                      'build',
+                  ]
+               },
+               {
+                  name: 'uws',
+                  dirs: [
+                     '*.node',
                   ]
                },
             ]
