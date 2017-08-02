@@ -44,10 +44,26 @@ var test_isThereEbuild = function() {
 
 }
 
+var test_getListEbuildVersions = function() {
+
+   var ebuilder = init.initBuilder();
+
+   ebuilder.overlaydir = '/home/geaaru/geaaru_overlay';
+
+   var ans =  ebuild.getListEbuildVersions(ebuilder.overlaydir,
+                                           ebuilder.category,
+                                           'socket.io');
+
+   console.log("----------------------------------------");
+   console.log(ans);
+   console.log("----------------------------------------");
+}
+
 console.log("BEGIN " + path.basename(__filename, '.js'));
 
 // test_ebuild1();
-test_isThereEbuild();
+// test_isThereEbuild();
+test_getListEbuildVersions();
 
 console.log("END " + path.basename(__filename, '.js'));
 
