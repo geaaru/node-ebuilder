@@ -151,6 +151,25 @@ var test_range_versions4 = function() {
 
 };
 
+var test_range_versions5 = function() {
+
+   var v = '0.0.2';
+   var range = '~0.0.2';
+   var p_v = ebuild.unGentoofyVersion('0.0.3');
+
+   console.log(sprintf("ebuild version %s", v));
+   console.log(sprintf("ebuild major version %s", semver.major(v)));
+   console.log(sprintf("ebuild minor version %s", semver.minor(v)));
+   console.log(sprintf("ebuild patch version %s", semver.patch(v)));
+
+   console.log(sprintf("packet version %s", p_v));
+
+   console.log(sprintf("Satisfy range: %s", semver.satisfies(p_v, range)));
+   console.log(sprintf("Satisfy range: %s", ebuild.satisfiesRange(p_v, range)));
+
+};
+
+
 var test_valid_vers = function() {
 
    var v = '2.0.0-rc2';
@@ -177,6 +196,7 @@ console.log("BEGIN " + path.basename(__filename, '.js'));
 test_range_versions2();
 test_range_versions3();
 test_range_versions4();
+test_range_versions5();
 test_valid_vers();
 //test_gentoofy1();
 
