@@ -1,6 +1,6 @@
 {
   "name": "node-ebuilder",
-  "version": "0.1.0",
+  "version": "0.2.2",
   "description": "Gentoo Ebuild factory for NodeJs packages",
   "main": "bin/node-ebuilder.js",
   "scripts": {
