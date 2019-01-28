@@ -46,6 +46,7 @@ This means that **is better create test suites of released ebuilds before move i
 | NPM_PKG_NAME | ${PN} | Contains package name. |
 | NPM_PACKAGEDIR | ${EROOT}usr/$(get_libdir) /node_modules/${NPM_PKG_NAME}/ | Contains default install directory of the package. |
 | NPM_GITHUP_MOD | - | For nodejs module available on github identify user and module for automatically create SRC_URI. |
+| NPM_PV | - | Define version used for download sources when NPM_GITHUP_MOD is used. Default value is v${PV}. |
 | NPM_BINS | - | If defined contains list of file used as binaries and related rename. |
 | NPM_SYSTEM_MODULES | - | If defined permit to avoid install of the packages modules to insert on this variable. This permit to use module installed from another ebuild. When this options is used NPM_NO_DEPS must be with value a 0 or not present. |
 | NPM_LOCAL_MODULES | - | It works in opposite of NPM_SYSTEM_MODULES to define modules that are installed locally on package directory and avoid use of system installed packages. It used always for sub-packages/sub-directories modules. When this options is used NPM_NO_DEPS must be with value a 0 or not present. |
