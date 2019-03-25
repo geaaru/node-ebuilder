@@ -75,6 +75,3 @@ Most of limitations are related to current `npmv1` eclass.
 
 * Single SLOT support
 
-* Currently it's not supported new sub-directory dependencies [see issue.](https://github.com/geaaru/node-ebuilder/issues/3)
-
-
