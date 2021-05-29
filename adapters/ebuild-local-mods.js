@@ -75,7 +75,7 @@ var processEbuild = function (ebuilder, pkg, adapters_opts) {
                        // on NPM_SYSTEM_MODULES variable, variable
                        // that contains modules that must be not installed.
                        pkg.ebuildFile.npm_sys_modules.push(lsout[idx2]);
-                       pkg.ebuildFile.restrict = "-network-sandbox";
+                       pkg.ebuildFile.restrict = "network-sandbox";
                     } else {
                        setLocalFlagOnDep(pkg, m);
                     }
