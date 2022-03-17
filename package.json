@@ -14,7 +14,7 @@
     "moment-timezone": "^0.5.3",
     "replaceall": "^0.1.6",
     "semver": "^5.4.1",
-    "shelljs": "^0.6.0"
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
     "simple-grep": "0.0.1"
