@@ -13,7 +13,7 @@
     "minimist": "^1.2.6",
     "moment-timezone": "^0.5.35",
     "replaceall": "^0.1.6",
-    "semver": "^5.4.1",
+    "semver": "^5.7.2",
     "shelljs": "^0.8.5"
   },
   "devDependencies": {
