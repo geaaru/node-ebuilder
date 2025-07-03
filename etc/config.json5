@@ -33,7 +33,7 @@
    // npmBinary: 'npm',
 
    // Ebuild architecture/architectures
-   ebuildArch: '~amd64 ~arm',
+   ebuildArch: '*',
 
    // Logging file path.
    logFile: './node-ebuilder.log',
@@ -104,6 +104,13 @@
                   name: 'bleno',
                   useOptionalDependencies: true,
                   excluded: [ 'xpc-connection' ]
+               },
+
+               {
+                  name: 'jest-haste-map',
+                  useOptionalDependencies: false,
+                  // fsevents is for darwin
+                  excluded: [ 'fsevents' ]
                }
             ],
          }
@@ -123,11 +130,28 @@
                   // as optional dependencies.
                   name: 'bleno',
                   npmInstallOpts: '-E --production',
+               },
+               {
+                  // Need his typescript version
+                  name: 'xml-crypto',
+                  npmInstallOpts: '-E',
+               },
+
+               {
+                  // Need his typescript version
+                  name: 'soap',
+                  npmInstallOpts: '-E',
+               },
+               {
+                  // The package needs scripts not available in the tarball
+                  name: 'whatwg-url',
+                  npmInstallOpts: '-E --ignore-scripts',
                }
             ],
             checkOptionalDeps: true
          }
       },
+
    ],
 
    // Ebuilds adapter are execute before create ebuilds file
