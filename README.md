@@ -11,7 +11,7 @@ Require npmv1.eclass on target overlay directory from
 
 ## npmv1 Eclass
 
-Npmv1 eclass currently support EAPI 5 and EAPI 6.
+Npmv1 eclass currently support EAPI 5 and EAPI 6, EAPI 7.
 
 ### Main rules
 
