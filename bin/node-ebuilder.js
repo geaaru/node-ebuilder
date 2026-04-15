@@ -12,7 +12,7 @@ const json5 = require('json5'),
 
 
 // Add require() hook for .json5 file.
-require('json5/lib/require');
+require('json5/lib/register');
 
 var main = function() {
    // Check command line parameters
