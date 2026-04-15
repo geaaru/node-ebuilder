@@ -20,10 +20,14 @@ var doPreliminary = function (ebuilder, pkg, adapters_opts) {
    var lsout = shell.ls('-l', pkg.stagingPkgDir);
 
    for (idx in lsout) {
-
-      msg += sprintf('%s %s\n',
-                     lsout[idx].isDirectory() ? "d" : "f",
-                     lsout[idx].name);
+      // At the end of the list of object
+      // Stat now has attribute about stdout, etc.
+      var stat = lsout[idx];
+      if (stat instanceof fs.Stats) {
+         msg += sprintf('%s %s\n',
+                        lsout[idx].isDirectory() ? "d" : "f",
+                        lsout[idx].name);
+      }
 
    } // end for
 

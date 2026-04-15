@@ -7,6 +7,7 @@
 var logging = require('../lib/logging'),
    ebuild = require('../lib/ebuild'),
    npm = require('../lib/npm'),
+   fs = require('fs'),
    sprintf = require('util').format,
    shell = require('shelljs');
 
@@ -68,6 +69,10 @@ var processEbuild = function (ebuilder, pkg, adapters_opts) {
 
                  for (idx2 in lsout) {
                     m = lsout[idx2];
+
+                    if (!(m instanceof fs.Stats)) {
+                       continue
+                    }
 
                     if (p.localMods.indexOf(m) < 0) {
                        // If module is not present on localMods

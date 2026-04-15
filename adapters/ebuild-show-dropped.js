@@ -9,6 +9,7 @@ var logging = require('../lib/logging'),
    npm = require('../lib/npm'),
    path = require('path'),
    shell = require('shelljs'),
+   fs = require('fs'),
    sprintf = require('util').format;
 
 var ebuildAdapterName = 'ebuild-show-dropped';
@@ -87,6 +88,11 @@ var processEbuild = function (ebuilder, pkg, adapters_opts) {
    for (idx in lsout) {
 
       s = lsout[idx];
+      if (!(s instanceof fs.Stats)) {
+         // Really, i dunno because to add at the end
+         // attributes != fs.Stats
+         continue
+      }
       name = path.basename(s.name);
       ext = path.extname(name);
 
