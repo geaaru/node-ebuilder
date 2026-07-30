@@ -143,6 +143,10 @@
                   npmInstallOpts: '-E',
                },
                {
+                  name: 'tar',
+                  npmInstallOpts: '-E --ignore-scripts --omit=optional --omit=dev --legacy-peer-deps',
+               },
+               {
                   // The package needs scripts not available in the tarball
                   name: 'whatwg-url',
                   npmInstallOpts: '-E --ignore-scripts',
